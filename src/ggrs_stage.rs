@@ -252,6 +252,7 @@ impl<T: Config> GGRSStage<T> {
     ) {
         debug!("advancing to frame: {}", self.frame + 1);
         world.insert_resource(PlayerInputs::<T>(inputs));
+        // world.insert_resource(RollbackFrameType);
         world.run_schedule(GGRSSchedule);
         world.remove_resource::<PlayerInputs<T>>();
         self.frame += 1;
